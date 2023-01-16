@@ -14,6 +14,7 @@ public class Uczniowie {
     public int ID_SEKRETARIATU;
     public int ID_ADRES;
 
+    public Uczniowie(){}
 
     public Uczniowie(int ID_UCZNIA, String IMIE, String NAZWISKO, String PESEL, Date DATA_URODZENIA, String PLEC, int ID_SEKRETARIATU, int ID_ADRES) {
         this.ID_UCZNIA = ID_UCZNIA;

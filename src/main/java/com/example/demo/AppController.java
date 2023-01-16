@@ -86,8 +86,8 @@ public class AppController implements WebMvcConfigurer {
         }
         @RequestMapping(value = {"/ucznowie_list"})
         public String showUczen(Model model){
-            List<Uczniowie> ucznowie = daoUczen.list();
-            model.addAttribute("Uczen", ucznowie);
+            List<Uczniowie> Uczen = daoUczen.list();
+            model.addAttribute("Uczen", Uczen);
 
             return "admin/ucznowie_list";
         }

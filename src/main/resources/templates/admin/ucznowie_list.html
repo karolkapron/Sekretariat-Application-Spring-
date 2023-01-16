@@ -24,24 +24,32 @@
 
 
 <!-- Table -->
-<table border = "1" cellpadding = "10">
+<table border = "1" cellpadding = "10" width="800px">
   <!-- Table header -->
   <thead>
   <tr> <!-- Table row -->
     <th>ID</th> <!–- Table column -->
-    <th>Miasto</th>
-    <th>Ulica</th>
-    <th>Kod pocztowy</th>
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    <th>Pesel</th>
+    <th>Data urodzenia</th>
+    <th>Plec</th>
+    <th>id sekretariatu</th>
+    <th>id adres</th>
     <th>Action</th>
   </tr>
   </thead>
   <!-- Table body -->
   <tbody>
-  <tr th:each = "Adres : ${Adres}">
-    <td th:text = "${Adres.id_adres}">ID</td>
-    <td th:text = "${Adres.miasto}">Miasto</td>
-    <td th:text = "${Adres.ulica}">Ulica</td>
-    <td th:text = "${Adres.kod_pocztowy}">Kod pocztowy</td>
+  <tr th:each = "Uczen : ${Uczen}">
+    <td th:text = "${Uczen.ID_UCZNIA}">ID</td>
+    <td th:text = "${Uczen.IMIE}">Imie</td>
+    <td th:text = "${Uczen.NAZWISKO}">Nazwisko</td>
+    <td th:text = "${Uczen.PESEL}">Pesel</td>
+    <td th:text = "${Uczen.DATA_URODZENIA}">Data urodzenia</td>
+    <td th:text = "${Uczen.PLEC}">Plec</td>
+    <td th:text = "${Uczen.ID_SEKRETARIATU}">id sekretariatu</td>
+    <td th:text = "${Uczen.ID_ADRES}">id adres</td>
   </tr>
   </tbody>
 </table>

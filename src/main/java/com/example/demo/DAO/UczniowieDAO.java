@@ -18,7 +18,7 @@ public class UczniowieDAO{
         this.jdbcTemplate = jdbcTemplate;
     }
     public List<Uczniowie> list(){
-        String sql = "Select * FROM SEKRETARIATY";
+        String sql = "Select * FROM Uczniowie";
 
         return jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Uczniowie.class));
