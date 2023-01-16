@@ -25,7 +25,7 @@ import java.util.List;
             return jdbcTemplate.query(sql,
                     BeanPropertyRowMapper.newInstance(Sekretariat.class));
         }
-        public void save(Sekretariat adres){
+        public void save(Sekretariat sekretariat){
 //        wstawienie nowego wiersza do tabeli
         }
 

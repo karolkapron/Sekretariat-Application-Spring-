@@ -2,8 +2,10 @@ package com.example.demo;
 
 import com.example.demo.Components.Adres;
 import com.example.demo.Components.Sekretariat;
+import com.example.demo.Components.Uczniowie;
 import com.example.demo.DAO.AdresDAO;
 import com.example.demo.DAO.SekretariatDAO;
+import com.example.demo.DAO.UczniowieDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
@@ -18,10 +20,14 @@ import java.util.List;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
+
+
         @Autowired
         public AdresDAO daoAdres;
         @Autowired
         public SekretariatDAO daoSekretariat;
+        @Autowired
+        public UczniowieDAO daoUczen;
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
@@ -31,6 +37,7 @@ public class AppController implements WebMvcConfigurer {
 
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/adres_list").setViewName("admin/adres_list");
+        registry.addViewController("/sekretariat_list").setViewName("admin/sekretariat_list");
         registry.addViewController("/main_user").setViewName("user/main_user");
     }
 
@@ -68,13 +75,21 @@ public class AppController implements WebMvcConfigurer {
 
             return "admin/adres_list";
         }
+
         @RequestMapping(value= {"/sekretariat_list"})
         public String showSekretariat(Model model){
 
-            List<Sekretariat> Sekretariat = daoSekretariat.list();
-            model.addAttribute("Sekretariat", Sekretariat);
+            List<Sekretariat> XD = daoSekretariat.list();
+            model.addAttribute("Sekretariat", XD);
 
             return "admin/sekretariat_list";
+        }
+        @RequestMapping(value = {"/ucznowie_list"})
+        public String showUczen(Model model){
+            List<Uczniowie> ucznowie = daoUczen.list();
+            model.addAttribute("Uczen", ucznowie);
+
+            return "admin/ucznowie_list";
         }
     }
 }

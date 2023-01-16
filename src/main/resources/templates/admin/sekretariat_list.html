@@ -24,7 +24,7 @@
 
 
 <!-- Table -->
-<table border = "1" cellpadding = "10">
+<table border = "1" cellpadding = "10" width="800px">
     <!-- Table header -->
     <thead>
     <tr> <!-- Table row -->
@@ -37,9 +37,9 @@
     <!-- Table body -->
     <tbody>
     <tr th:each = "Sekretariat : ${Sekretariat}">
-        <td th:text = "${Sekretariat.id_sekretariatu}">ID</td>
-        <td th:text = "${Sekretariat.nazwa_szkoly}">Nazwa szkoły</td>
-        <td th:text = "${Sekretariat.id_adres}">ID Adres</td>
+        <td th:text = "${Sekretariat.ID_SEKRETARIATU}">ID</td>
+        <td th:text = "${Sekretariat.NAZWA_SZKOLY}">Nazwa szkoły</td>
+        <td th:text = "${Sekretariat.ID_ADRES}">ID Adres</td>
     </tr>
     </tbody>
 </table>

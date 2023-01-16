@@ -2,41 +2,39 @@ package com.example.demo.Components;
 
 public class Sekretariat {
 
-
-    public int id_sekretariatu;
-    public String nazwa_szkoly;
-    public int id_adres;
-
+    public int ID_SEKRETARIATU;
+    public String NAZWA_SZKOLY;
+    public int ID_ADRES;
 
 
-    public Sekretariat(){}
+    public Sekretariat(){};
 
     public Sekretariat(int id_sekretariatu, String nazwa, int id_adresu) {
-        this.id_sekretariatu = id_sekretariatu;
-        this.nazwa_szkoly = nazwa;
-        this.id_adres = id_adresu;
+        this.ID_SEKRETARIATU = id_sekretariatu;
+        this.NAZWA_SZKOLY = nazwa;
+        this.ID_ADRES = id_adresu;
     }
 
 
 
-    public int getId_sekretariatu() {return id_sekretariatu;}
+    public int getId_sekretariatu() {return ID_SEKRETARIATU;}
 
-    public void setId_sekretariatu(int id_sekretariatu) {this.id_sekretariatu = id_sekretariatu;}
+    public void setId_sekretariatu(int id_sekretariatu) {this.ID_SEKRETARIATU = id_sekretariatu;}
 
-    public String getNazwa() {return nazwa_szkoly;}
+    public String getNazwa() {return NAZWA_SZKOLY;}
 
-    public void setNazwa(String nazwa) {this.nazwa_szkoly = nazwa;}
+    public void setNazwa(String nazwa) {this.NAZWA_SZKOLY = nazwa;}
 
-    public int getId_adresu() {return id_adres;}
+    public int getId_adresu() {return ID_ADRES ;}
 
-    public void setId_adresu(int id_adresu) {this.id_adres = id_adresu;}
+    public void setId_adresu(int id_adresu) {this.ID_ADRES = id_adresu;}
 
     @Override
     public String toString() {
         return "Sekretariat{" +
-                "id_sekretariatu=" + id_sekretariatu +
-                ", nazwa_szkoly='" + nazwa_szkoly + '\'' +
-                ", id_adres=" + id_adres +
+                "ID_SEKRETARIATU=" + ID_SEKRETARIATU +
+                ", NAZWA_SZKOLY='" + NAZWA_SZKOLY + '\'' +
+                ", ID_ADRES=" + ID_ADRES +
                 '}';
     }
 
