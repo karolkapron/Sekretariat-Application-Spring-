@@ -37,10 +37,10 @@
 		<!--  Oracle JDBC driver (for Java 11 it's ojdbc10  -->
 		<dependency>
 			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc10</artifactId>
+			<artifactId>ojdbc11</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/Karol/Desktop/Studia/BDBT/Spring/ojdbc10.jar</systemPath>
+			<systemPath>C:/Users/Karol/Desktop/Studia/BDBT/Spring/ojdbc11.jar</systemPath>
 		</dependency>
 		<!--  Spring Security - start  -->
 		<dependency>
@@ -81,5 +81,9 @@
 			<scope>provided</scope>
 		</dependency>
 		<!--  New adding end  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 	</dependencies>
 </project>

@@ -1,9 +1,12 @@
 package com.example.demo;
 
+import com.example.demo.DAO.AdresDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -11,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
+        @Autowired
+        private AdresDAO daoAdres;
+
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/").setViewName("index");
@@ -23,6 +29,15 @@ public class AppController implements WebMvcConfigurer {
 
     @Controller
     public class DashboardController {
+
+        @RequestMapping(value= {"/adres"})
+        public String showAdres(Model model){
+
+            ModelAndView view = new ModelAndView("admin/adres");
+
+            return "admin/adres";
+        }
+
         @RequestMapping("/main")
         public String defaultAfterLogin(HttpServletRequest request) {
             if (request.isUserInRole("ADMIN")) {

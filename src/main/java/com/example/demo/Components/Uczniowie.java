@@ -1,2 +1,4 @@
-package com.example.demo.Components;public class Uczniowie {
+package com.example.demo.Components;
+
+public class Uczniowie {
 }
