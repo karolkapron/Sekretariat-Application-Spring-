@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" th:href="@{/main_admin}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Add</a>
+            <a class="nav-item nav-link" href="#">Delete</a>
+            <a class="nav-item nav-link" href="#">Modify</a>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- Table -->
+<table border = "1" cellpadding = "10">
+    <!-- Table header -->
+    <thead>
+    <tr> <!-- Table row -->
+        <th>ID</th> <!–- Table column -->
+        <th>Nazwa szkoły</th>
+        <th>ID Adres</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <!-- Table body -->
+    <tbody>
+    <tr th:each = "Sekretariat : ${Sekretariat}">
+        <td th:text = "${Sekretariat.id_sekretariatu}">ID</td>
+        <td th:text = "${Sekretariat.nazwa_szkoly}">Nazwa szkoły</td>
+        <td th:text = "${Sekretariat.id_adres}">ID Adres</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

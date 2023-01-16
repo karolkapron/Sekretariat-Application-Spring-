@@ -1,7 +1,9 @@
 package com.example.demo;
 
 import com.example.demo.Components.Adres;
+import com.example.demo.Components.Sekretariat;
 import com.example.demo.DAO.AdresDAO;
+import com.example.demo.DAO.SekretariatDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,9 @@ import java.util.List;
 @Configuration
 public class AppController implements WebMvcConfigurer {
         @Autowired
-        private AdresDAO daoAdres;
+        public AdresDAO daoAdres;
+        @Autowired
+        public SekretariatDAO daoSekretariat;
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
@@ -63,6 +67,14 @@ public class AppController implements WebMvcConfigurer {
             model.addAttribute("Adres", Adres);
 
             return "admin/adres_list";
+        }
+        @RequestMapping(value= {"/sekretariat_list"})
+        public String showSekretariat(Model model){
+
+            List<Sekretariat> Sekretariat = daoSekretariat.list();
+            model.addAttribute("Sekretariat", Sekretariat);
+
+            return "admin/sekretariat_list";
         }
     }
 }
