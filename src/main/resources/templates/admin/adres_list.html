@@ -3,23 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+          rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
-            <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-item nav-link active" th:href="@{/main_admin}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Add</a>
+            <a class="nav-item nav-link" href="#">Delete</a>
+            <a class="nav-item nav-link" href="#">Modify</a>
         </div>
     </div>
 </nav>
+
+
+
+<!-- Table -->
+<table border = "1" cellpadding = "10">
+    <!-- Table header -->
+    <thead>
+    <tr> <!-- Table row -->
+        <th>ID</th> <!–- Table column -->
+        <th>Miasto</th>
+        <th>Ulica</th>
+        <th>Kod pocztowy</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <!-- Table body -->
+    <tbody>
+    <tr th:each = "Adres : ${Adres}">
+        <td th:text = "${Adres.id_adres}">ID</td>
+        <td th:text = "${Adres.miasto}">Miasto</td>
+        <td th:text = "${Adres.ulica}">Ulica</td>
+        <td th:text = "${Adres.kod_pocztowy}">Kod pocztowy</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>

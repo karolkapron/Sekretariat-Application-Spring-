@@ -20,11 +20,11 @@ public class AdresDAO {
     }
 
     public List<Adres> list(){
-        String sql = "SELECT * FROM ADRESY;";
-        List<Adres> listAdres = jdbcTemplate.query(sql,
+        String sql = "SELECT * FROM ADRESY";
+        List<Adres> Adres = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Adres.class));
 
-        return listAdres;
+        return Adres;
     }
     public void save(Adres adres){
 //        wstawienie nowego wiersza do tabeli
