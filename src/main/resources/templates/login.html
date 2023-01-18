@@ -3,6 +3,11 @@
 <head>
     <title>Strona logowania</title>
     <style>
+    div {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
     body {
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
@@ -65,11 +70,11 @@
       border-radius: 4px;
     }
 
-    /* Add some hover effects to the button */
     input[type=submit]:hover {
       background-color: #45a049;
     }
   </style>
+
 </head>
 <body>
 <form th:action="@{/login}" method="post">
@@ -79,12 +84,20 @@
     <button type="submit">Sign in</button>
 </form>
 
-<div th:if="${param.error}">
+<div id = "element" th:if="${param.error}">
     Invalid username or password.
 </div>
 
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
+
 </body>
+
 </html>
+<script type="text/javascript">
+setTimeout(() => {
+let get = document.getElementById('element');
+get.style.visibility = 'hidden';
+}, 2000);
+</script>
