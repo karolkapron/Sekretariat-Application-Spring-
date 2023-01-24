@@ -5,28 +5,41 @@
   <title>Lista uczniów</title>
   <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
         rel="stylesheet">
+  <style>
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <button class="btn btn-outline-success" type="button" onclick= th:href="@{/main_admin}>Back to Main<span class="sr-only">(current)</span></button>
-    <button class="btn btn-sm btn-outline-secondary" type="button" th:href="@{/uczniowie_add}">Dodaj ucznia<span class="sr-only">(current)</span></button>
-    <button class="btn btn-sm btn-outline-secondary" type="button" th:href="@{/uczniowie_delete}">Usuń ucznia<span class="sr-only">(current)</span></button>
-    <button class="btn btn-sm btn-outline-secondary" type="button" th:href="@{/uczniowie_modify}">Edytuj ucznia<span class="sr-only">(current)</span></button>
-  </form>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" th:href="@{/main_admin}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" th:href="@{/uczniowie_add}">Add <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Delete</a>
-      <a class="nav-item nav-link" href="#">Modify</a>
-    </div>
-  </div>
-</nav>
-
-
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <button class="nav-link active" th:href="@{/main_admin}">Powrót do menu<span class="sr-only">(current)</span></button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link" th:href="@{/uczniowie_add}">Dodaj ucznia<span class="sr-only">(current)</span></button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link" th:href="@{/uczniowie_delete}">Usuń ucznia<span class="sr-only">(current)</span></button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link disabled" th:href="@{/uczniowie_modify}">Modyfikuj ucznia<span class="sr-only">(current)</span></button>
+  </li>
+</ul>
 
 <!-- Table -->
 <table class = "table" border = "1" cellpadding = "10" width="800px">
@@ -41,7 +54,6 @@
     <th>Plec</th>
     <th>id sekretariatu</th>
     <th>id adres</th>
-    <th>Action</th>
   </tr>
   </thead>
   <!-- Table body -->
