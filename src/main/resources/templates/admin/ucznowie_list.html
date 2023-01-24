@@ -23,40 +23,40 @@
       box-shadow: 0 5px #666;
       transform: translateY(4px);
     }
+    .nav-item{
+        background-color: #FFFF00
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
 <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
-    <button class="nav-link active" th:href="@{/main_admin}">Powrót do menu<span class="sr-only">(current)</span></button>
+    <a class="nav-link active" th:href="@{/main_admin}">Powrót do menu<span class="sr-only">(current)</span></a>
   </li>
   <li class="nav-item">
-    <button class="nav-link" th:href="@{/uczniowie_add}">Dodaj ucznia<span class="sr-only">(current)</span></button>
-  </li>
-  <li class="nav-item">
-    <button class="nav-link" th:href="@{/uczniowie_delete}">Usuń ucznia<span class="sr-only">(current)</span></button>
-  </li>
-  <li class="nav-item">
-    <button class="nav-link disabled" th:href="@{/uczniowie_modify}">Modyfikuj ucznia<span class="sr-only">(current)</span></button>
+    <a class="nav-link active" th:href="@{/uczniowie_add}">Dodaj ucznia<span class="sr-only">(current)</span></a>
   </li>
 </ul>
 
-<!-- Table -->
 <table class = "table" border = "1" cellpadding = "10" width="800px">
-  <!-- Table header -->
   <thead class="thead-dark">
-  <tr> <!-- Table row -->
-    <th>ID</th> <!–- Table column -->
+  <tr>
+    <th>ID</th>
     <th>Imie</th>
     <th>Nazwisko</th>
     <th>Pesel</th>
     <th>Data urodzenia</th>
     <th>Plec</th>
-    <th>id sekretariatu</th>
-    <th>id adres</th>
+    <th>Id sekretariatu</th>
+    <th>Id adres</th>
   </tr>
   </thead>
-  <!-- Table body -->
   <tbody>
   <tr th:each = "Uczen : ${Uczen}">
     <td th:text = "${Uczen.ID_UCZNIA}">ID</td>
@@ -65,17 +65,15 @@
     <td th:text = "${Uczen.PESEL}">Pesel</td>
     <td th:text = "${Uczen.DATA_URODZENIA}">Data urodzenia</td>
     <td th:text = "${Uczen.PLEC}">Plec</td>
-    <td th:text = "${Uczen.ID_SEKRETARIATU}">id sekretariatu</td>
-    <td th:text = "${Uczen.ID_ADRES}">id adres</td>
+    <td th:text = "${Uczen.ID_SEKRETARIATU}">Id sekretariatu</td>
+    <td th:text = "${Uczen.ID_ADRES}">Id adres</td>
   </tr>
   </tbody>
 </table>
-
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/script.js}"></script>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 package com.example.demo.DAO;
-import com.example.demo.Components.Sekretariat;
+
 import com.example.demo.Components.Uczniowie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -21,12 +21,11 @@ public class UczniowieDAO{
     }
     public List<Uczniowie> list(){
         String sql = "Select * FROM Uczniowie";
-
         return jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Uczniowie.class));
     }
     public void save(Uczniowie uczen){
-//        wstawienie nowego wiersza do tabeli
+        //wstawienie nowego wiersza do tabeli
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("Uczniowie").usingColumns("ID_UCZNIA","IMIE","NAZWISKO","PESEL","DATA_URODZENIA","PLEC","ID_SEKRETARIATU","ID_ADRES");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(uczen);

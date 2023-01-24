@@ -4,37 +4,36 @@ import com.example.demo.Components.Sekretariat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
-    @Repository
-    public class SekretariatDAO {
+@Repository
 
-        @Autowired
-        private JdbcTemplate jdbcTemplate;
+public class SekretariatDAO{
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-        public SekretariatDAO(JdbcTemplate jdbcTemplate){
-            super();
-            this.jdbcTemplate = jdbcTemplate;
-        }
-
-        public List<Sekretariat> list(){
-            String sql = "Select * FROM SEKRETARIATY";
-
-            return jdbcTemplate.query(sql,
-                    BeanPropertyRowMapper.newInstance(Sekretariat.class));
-        }
-        public void save(Sekretariat sekretariat){
-//        wstawienie nowego wiersza do tabeli
-        }
-
-        //odczytanie bazt danych
-        public Sekretariat get(int id){
-            return null;
-        }
-
-        public void delete(int id){
-            //usuniecie danego adresu po id
-        }
+    public SekretariatDAO(JdbcTemplate jdbcTemplate){
+        super();
+        this.jdbcTemplate = jdbcTemplate;
     }
+    public List<Sekretariat> list(){
+        String sql = "Select * FROM Sekretariaty";
+        return jdbcTemplate.query(sql,
+                BeanPropertyRowMapper.newInstance(Sekretariat.class));
+        }
+    public void save(Sekretariat sekretariat){
+        //wstawienie nowego wiersza do tabeli
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("Sekretariaty").usingColumns("ID_SEKRETARIATU","NAZWA_SZKOLY","ID_ADRES");
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sekretariat);
+        insertActor.execute(param);
+    }
+    public void delete(int id){
+       //usuniecie danego adresu po id
+    }
+    //odczytanie bazt danych
+    public Sekretariat get(int id){return null;}
+}

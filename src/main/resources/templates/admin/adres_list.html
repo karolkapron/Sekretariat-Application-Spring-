@@ -2,40 +2,57 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lista Adresów</title>
     <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
           rel="stylesheet">
+    <style>
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+    .nav-item{
+        background-color: #FFFF00
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" th:href="@{/main_admin}">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Add</a>
-            <a class="nav-item nav-link" href="#">Delete</a>
-            <a class="nav-item nav-link" href="#">Modify</a>
-        </div>
-    </div>
-</nav>
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link active" th:href="@{/main_admin}">Powrót do menu<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" th:href="@{/adres_add}">Dodaj adres<span class="sr-only">(current)</span></a>
+    </li>
+</ul>
 
-
-
-<!-- Table -->
-<table border = "1" cellpadding = "10">
-    <!-- Table header -->
-    <thead>
-    <tr> <!-- Table row -->
-        <th>ID</th> <!–- Table column -->
+<table class = "table" border = "1" cellpadding = "10" width="800px">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
         <th>Miasto</th>
         <th>Ulica</th>
         <th>Kod pocztowy</th>
-        <th>Action</th>
     </tr>
     </thead>
-    <!-- Table body -->
     <tbody>
     <tr th:each = "Adres : ${Adres}">
         <td th:text = "${Adres.id_adres}">ID</td>
@@ -45,7 +62,6 @@
     </tr>
     </tbody>
 </table>
-
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

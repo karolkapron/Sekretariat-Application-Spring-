@@ -71,19 +71,15 @@ public class AppController implements WebMvcConfigurer {
 
         @RequestMapping(value= {"/adres_list"})
         public String showAdres(Model model){
-
             List<Adres> Adres = daoAdres.list();
             model.addAttribute("Adres", Adres);
-
             return "admin/adres_list";
         }
 
         @RequestMapping(value= {"/sekretariat_list"})
         public String showSekretariat(Model model){
-
-            List<Sekretariat> XD = daoSekretariat.list();
-            model.addAttribute("Sekretariat", XD);
-
+            List<Sekretariat> Sekretariat = daoSekretariat.list();
+            model.addAttribute("Sekretariat", Sekretariat);
             return "admin/sekretariat_list";
         }
         @RequestMapping(value = {"/ucznowie_list"})
@@ -96,13 +92,23 @@ public class AppController implements WebMvcConfigurer {
         public String showUczenAdd(Model model){
             Uczniowie uczen = new Uczniowie();
             model.addAttribute("uczen", uczen);
-
             return "admin/uczniowie_add";
+        }
+        @RequestMapping(value = "/adres_add")
+        public String showAdresAdd(Model model){
+            Adres adres = new Adres();
+            model.addAttribute("adres", adres);
+            return "admin/adres_add";
         }
         @RequestMapping(value = "/save",method = RequestMethod.POST)
         public String saveUczen(@ModelAttribute("uczen") Uczniowie uczen){
             daoUczen.save(uczen);
             return "redirect:/ucznowie_list";
+        }
+        @RequestMapping(value = "/save_adres",method = RequestMethod.POST)
+        public String saveAdres(@ModelAttribute("adres") Adres adres){
+            daoAdres.save(adres);
+            return "redirect:/adres_list";
         }
         @RequestMapping(value = {"/uczniowie_delete"})
         public String showUczenDelete(Model model){
