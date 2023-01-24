@@ -7,6 +7,14 @@
         rel="stylesheet">
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button" onclick= th:href="@{/main_admin}>Back to Main<span class="sr-only">(current)</span></button>
+    <button class="btn btn-sm btn-outline-secondary" type="button" th:href="@{/uczniowie_add}">Dodaj ucznia<span class="sr-only">(current)</span></button>
+    <button class="btn btn-sm btn-outline-secondary" type="button" th:href="@{/uczniowie_delete}">Usuń ucznia<span class="sr-only">(current)</span></button>
+    <button class="btn btn-sm btn-outline-secondary" type="button" th:href="@{/uczniowie_modify}">Edytuj ucznia<span class="sr-only">(current)</span></button>
+  </form>
+</nav>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
