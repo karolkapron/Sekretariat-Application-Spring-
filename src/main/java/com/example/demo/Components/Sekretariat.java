@@ -15,8 +15,6 @@ public class Sekretariat {
         this.ID_ADRES = id_adresu;
     }
 
-
-
     public int getId_sekretariatu() {return ID_SEKRETARIATU;}
 
     public void setId_sekretariatu(int id_sekretariatu) {this.ID_SEKRETARIATU = id_sekretariatu;}
@@ -37,7 +35,4 @@ public class Sekretariat {
                 ", ID_ADRES=" + ID_ADRES +
                 '}';
     }
-
-
-
 }

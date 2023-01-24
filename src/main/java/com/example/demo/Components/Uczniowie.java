@@ -4,8 +4,7 @@ import java.util.Date;
 
 public class Uczniowie {
 
-
-     public int ID_UCZNIA;
+    public int ID_UCZNIA;
     public String IMIE;
     public String NAZWISKO;
     public String PESEL;
@@ -103,7 +102,4 @@ public class Uczniowie {
                 ", ID_ADRES=" + ID_ADRES +
                 '}';
     }
-
-
-
 }

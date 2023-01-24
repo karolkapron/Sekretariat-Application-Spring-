@@ -4,6 +4,8 @@ import com.example.demo.Components.Uczniowie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,6 +27,10 @@ public class UczniowieDAO{
     }
     public void save(Uczniowie uczen){
 //        wstawienie nowego wiersza do tabeli
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("Uczniowie").usingColumns("ID_UCZNIA","IMIE","NAZWISKO","PESEL","DATA_URODZENIA","PLEC","ID_SEKRETARIATU","ID_ADRES");
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(uczen);
+        insertActor.execute(param);
     }
 
     //odczytanie bazt danych
