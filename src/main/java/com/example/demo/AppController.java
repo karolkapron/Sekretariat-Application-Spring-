@@ -104,5 +104,11 @@ public class AppController implements WebMvcConfigurer {
             daoUczen.save(uczen);
             return "redirect:/ucznowie_list";
         }
+        @RequestMapping(value = {"/uczniowie_delete"})
+        public String showUczenDelete(Model model){
+            Uczniowie uczen = new Uczniowie();
+            model.addAttribute("uczen", uczen);
+            return "admin/uczniowie_delete";
+        }
     }
 }

@@ -32,14 +32,16 @@ public class UczniowieDAO{
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(uczen);
         insertActor.execute(param);
     }
-
+    public void delete(Uczniowie uczen){
+        //usuniecie danego adresu po id
+        String SQL = "DELETE from UCZNIOWIE where ID_UCZNIA = ?";
+        jdbcTemplate.update(SQL, uczen.ID_UCZNIA);
+    }
     //odczytanie bazt danych
     public Uczniowie get(int id){
         return null;
     }
 
-    public void delete(int id){
-        //usuniecie danego adresu po id
-    }
+
 }
 

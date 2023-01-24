@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Lista uczniów</title>
+  <title>Usuwanie ucznia z listy</title>
   <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
         rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" th:href="@{/main_admin}">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" th:href="@{/uczniowie_add}">Add <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Delete</a>
+      <a class="nav-item nav-link active" th:href="@{/uczniowie_delete}">Delete<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Modify</a>
     </div>
   </div>
@@ -21,9 +21,9 @@
 
 
 <!-- Table -->
-<table class = "table" border = "1" cellpadding = "10" width="800px">
+<table border = "1" cellpadding = "10" width="800px">
   <!-- Table header -->
-  <thead class="thead-dark">
+  <thead>
   <tr> <!-- Table row -->
     <th>ID</th> <!–- Table column -->
     <th>Imie</th>
