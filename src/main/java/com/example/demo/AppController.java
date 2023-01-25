@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.Components.Adres;
+import com.example.demo.Components.Adresy;
 import com.example.demo.Components.Sekretariat;
 import com.example.demo.Components.Uczniowie;
 import com.example.demo.DAO.AdresDAO;
@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -71,7 +70,7 @@ public class AppController implements WebMvcConfigurer {
 
         @RequestMapping(value= {"/adres_list"})
         public String showAdres(Model model){
-            List<Adres> Adres = daoAdres.list();
+            List<Adresy> Adres = daoAdres.list();
             model.addAttribute("Adres", Adres);
             return "admin/adres_list";
         }
@@ -94,10 +93,16 @@ public class AppController implements WebMvcConfigurer {
             model.addAttribute("uczen", uczen);
             return "admin/uczniowie_add";
         }
+        @RequestMapping(value = {"/sekretariat_add"})
+        public String showSekretariatAdd(Model model){
+            Sekretariat sekretariat = new Sekretariat();
+            model.addAttribute("sekretariat", sekretariat);
+            return "admin/sekretariat_add";
+        }
         @RequestMapping(value = "/adres_add")
-        public String showAdresAdd(Model model){
-            Adres adres = new Adres();
-            model.addAttribute("adres", adres);
+        public String showAdresyAdd(Model model){
+            Adresy adresy = new Adresy();
+            model.addAttribute("adresy", adresy);
             return "admin/adres_add";
         }
         @RequestMapping(value = "/save",method = RequestMethod.POST)
@@ -106,9 +111,14 @@ public class AppController implements WebMvcConfigurer {
             return "redirect:/ucznowie_list";
         }
         @RequestMapping(value = "/save_adres",method = RequestMethod.POST)
-        public String saveAdres(@ModelAttribute("adres") Adres adres){
-            daoAdres.save(adres);
+        public String saveAdres(@ModelAttribute("adresy") Adresy adresy){
+            daoAdres.save(adresy);
             return "redirect:/adres_list";
+        }
+        @RequestMapping(value = "/save_sekretariat",method = RequestMethod.POST)
+        public String saveAdres(@ModelAttribute("sekretariat") Sekretariat sekretariat){
+            daoSekretariat.save(sekretariat);
+            return "redirect:/sekretariat_list";
         }
         @RequestMapping(value = {"/uczniowie_delete"})
         public String showUczenDelete(Model model){

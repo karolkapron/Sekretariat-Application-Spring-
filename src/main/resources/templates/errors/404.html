@@ -4,25 +4,26 @@
     <meta charset="UTF-8"/>
     <title>Error Page</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <style>
+        body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      color: #4caf50;
+      font-family: sans-serif;
+    }
+    </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">BDBT Spring Boot Project - Part II</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
 <div class="container">
     <div class="row">
         <div class="col-md-4 mt-5">
             <form method="post" th:action="@{/index}">
                 <div class="form-group">
-                    <div><b><p style="font-size:30px">Error</p></b></div>
+                    <div><b><h1>Error</h1></b></div>
                     <div><p style="font-size:24px">404 - Page not found</p></div>
                 </div>
                 <button class="btn btn-primary" type="submit" value="Sign In">Back to home page</button>

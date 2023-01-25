@@ -6,6 +6,16 @@
     <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
           rel="stylesheet">
     <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      color: #4caf50;
+      font-family: sans-serif;
+    }
     button {
       width: 100%;
       background-color: #4CAF50;
@@ -40,7 +50,7 @@
         <a class="nav-link active" th:href="@{/main_admin}">Powrót do menu<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" th:href="@{/adres_add}">Dodaj adres<span class="sr-only">(current)</span></a>
+        <a class="nav-link active" th:href="@{/adres_add}">Dodaj adresy<span class="sr-only">(current)</span></a>
     </li>
 </ul>
 
@@ -55,10 +65,10 @@
     </thead>
     <tbody>
     <tr th:each = "Adres : ${Adres}">
-        <td th:text = "${Adres.id_adres}">ID</td>
-        <td th:text = "${Adres.miasto}">Miasto</td>
-        <td th:text = "${Adres.ulica}">Ulica</td>
-        <td th:text = "${Adres.kod_pocztowy}">Kod pocztowy</td>
+        <td th:text = "${Adres.ID_ADRES}">ID</td>
+        <td th:text = "${Adres.MIASTO}">Miasto</td>
+        <td th:text = "${Adres.ULICA}">Ulica</td>
+        <td th:text = "${Adres.KOD_POCZTOWY}">Kod pocztowy</td>
     </tr>
     </tbody>
 </table>

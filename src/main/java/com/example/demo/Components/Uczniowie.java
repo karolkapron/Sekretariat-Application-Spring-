@@ -3,7 +3,6 @@ package com.example.demo.Components;
 import java.util.Date;
 
 public class Uczniowie {
-
     public int ID_UCZNIA;
     public String IMIE;
     public String NAZWISKO;

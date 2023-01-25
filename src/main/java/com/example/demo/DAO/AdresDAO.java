@@ -1,6 +1,6 @@
 package com.example.demo.DAO;
 
-import com.example.demo.Components.Adres;
+import com.example.demo.Components.Adresy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -21,21 +21,21 @@ public class AdresDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Adres> list(){
+    public List<Adresy> list(){
         String sql = "SELECT * FROM ADRESY";
-        List<Adres> Adres = jdbcTemplate.query(sql,
-                BeanPropertyRowMapper.newInstance(Adres.class));
-        return Adres;
+        List<Adresy> Adresy = jdbcTemplate.query(sql,
+                BeanPropertyRowMapper.newInstance(Adresy.class));
+        return Adresy;
     }
-    public void save(Adres adres){
+    public void save(Adresy adresy){
 //        wstawienie nowego wiersza do tabeli
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("Adresy").usingColumns("ID_ADRES","MIASTO","ULICA","KOD_POCZTOWY");
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adres);
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
         insertActor.execute(param);
     }
     //odczytanie bazt danych
-    public Adres get(int id){
+    public Adresy get(int id){
         return null;
     }
     public void delete(int id){
