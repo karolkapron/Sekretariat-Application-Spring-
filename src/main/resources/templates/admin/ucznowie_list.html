@@ -67,7 +67,11 @@
     <td th:text = "${Uczen.PLEC}">Plec</td>
     <td th:text = "${Uczen.ID_SEKRETARIATU}">Id sekretariatu</td>
     <td th:text = "${Uczen.ID_ADRES}">Id adresy</td>
+    <td>
+      <a th:href ="@{'/uczniowie_delete/'+${Uczen.ID_UCZNIA}}">Usuń</a>
+    </td>
   </tr>
+
   </tbody>
 </table>
 

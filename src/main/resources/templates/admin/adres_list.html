@@ -69,6 +69,9 @@
         <td th:text = "${Adres.MIASTO}">Miasto</td>
         <td th:text = "${Adres.ULICA}">Ulica</td>
         <td th:text = "${Adres.KOD_POCZTOWY}">Kod pocztowy</td>
+        <td>
+            <a th:href="@{'/adresy_delete/'+${Adres.ID_ADRES}}">Usuń</a>
+        </td>
     </tr>
     </tbody>
 </table>

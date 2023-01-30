@@ -31,14 +31,17 @@ public class UczniowieDAO{
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(uczen);
         insertActor.execute(param);
     }
-    public void delete(Uczniowie uczen){
+    public void delete(int id_ucznia){
         //usuniecie danego adresu po id
-        String SQL = "DELETE from UCZNIOWIE where ID_UCZNIA = ?";
-        jdbcTemplate.update(SQL, uczen.ID_UCZNIA);
+        String SQL = "DELETE FROM UCZNIOWIE WHERE ID_UCZNIA = ?";
+        jdbcTemplate.update(SQL, id_ucznia);
     }
-    //odczytanie bazt danych
+    //odczytanie bazy danych
     public Uczniowie get(int id){
-        return null;
+        Object[] args = {id};
+        String sql = "SELECT * FROM UCZNIOWIE WHERE ID_UCZNIA = " + args[0];
+        Uczniowie uczniowie = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Uczniowie.class));
+        return uczniowie;
     }
 
 

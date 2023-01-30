@@ -1,6 +1,7 @@
 package com.example.demo.DAO;
 
 import com.example.demo.Components.Adresy;
+import com.example.demo.Components.Uczniowie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -28,17 +29,19 @@ public class AdresDAO {
         return Adresy;
     }
     public void save(Adresy adresy){
-//        wstawienie nowego wiersza do tabeli
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("Adresy").usingColumns("ID_ADRES","MIASTO","ULICA","KOD_POCZTOWY");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
         insertActor.execute(param);
     }
-    //odczytanie bazt danych
     public Adresy get(int id){
-        return null;
+        Object[] args = {id};
+        String sql = "SELECT * FROM ADRESY WHERE ID_ADRES = " + args[0];
+        Adresy adres = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Adresy.class));
+        return adres;
     }
-    public void delete(int id){
-        //usuniecie danego adresu po id
+    public void delete(int id_adres){
+        String sql = "DELETE FROM ADRESY WHERE ID_ADRES = ?";
+        jdbcTemplate.update(sql, id_adres);
     }
 }

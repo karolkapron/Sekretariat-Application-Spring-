@@ -31,8 +31,10 @@ public class SekretariatDAO{
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sekretariat);
         insertActor.execute(param);
     }
-    public void delete(int id){
-       //usuniecie danego adresu po id
+    public void delete(int id_sekretariat){
+        //usuniecie danego adresu po id
+        String SQL = "DELETE FROM SEKRETARIATY WHERE ID_SEKRETARIATU = ?";
+        jdbcTemplate.update(SQL, id_sekretariat);
     }
     //odczytanie bazt danych
     public Sekretariat get(int id){return null;}

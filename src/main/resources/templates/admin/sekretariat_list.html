@@ -70,6 +70,9 @@
         <td th:text = "${Sekretariat.ID_SEKRETARIATU}">ID</td>
         <td th:text = "${Sekretariat.NAZWA_SZKOLY}">Nazwa szkoły</td>
         <td th:text = "${Sekretariat.ID_ADRES}">ID Adresy</td>
+        <td>
+            <a th:href="@{'/sekretariaty_delete/'+${Sekretariat.ID_SEKRETARIATU}}">Usuń</a>
+        </td>
     </tr>
     </tbody>
 </table>

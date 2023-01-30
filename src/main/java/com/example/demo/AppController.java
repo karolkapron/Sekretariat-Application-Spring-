@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -81,6 +82,11 @@ public class AppController implements WebMvcConfigurer {
             model.addAttribute("Sekretariat", Sekretariat);
             return "admin/sekretariat_list";
         }
+        @RequestMapping(value = {"/sekretariaty_delete/{id_sekretariatu}"})
+        public String deleteSekretariaty(@PathVariable(name="id_sekretariatu") int id_sekretariatu){
+            daoSekretariat.delete(id_sekretariatu);
+            return "redirect:/sekretariat_list";
+        }
         @RequestMapping(value = {"/ucznowie_list"})
         public String showUczen(Model model){
             List<Uczniowie> Uczen = daoUczen.list();
@@ -98,6 +104,16 @@ public class AppController implements WebMvcConfigurer {
             Uczniowie uczen = new Uczniowie();
             model.addAttribute("uczen", uczen);
             return "admin/uczniowie_add";
+        }
+        @RequestMapping(value = {"/uczniowie_delete/{id_ucznia}"})
+        public String deleteUczniowie(@PathVariable(name="id_ucznia") int id_ucznia){
+            daoUczen.delete(id_ucznia);
+            return "redirect:/ucznowie_list";
+        }
+        @RequestMapping(value = {"/adresy_delete/{id_adres}"})
+        public String deleteAdresy(@PathVariable(name="id_adres") int id_adres){
+            daoAdres.delete(id_adres);
+            return "redirect:/adres_list";
         }
         @RequestMapping(value = {"/sekretariat_add"})
         public String showSekretariatAdd(Model model){
@@ -125,12 +141,6 @@ public class AppController implements WebMvcConfigurer {
         public String saveAdres(@ModelAttribute("sekretariat") Sekretariat sekretariat){
             daoSekretariat.save(sekretariat);
             return "redirect:/sekretariat_list";
-        }
-        @RequestMapping(value = {"/uczniowie_delete"})
-        public String showUczenDelete(Model model){
-            Uczniowie uczen = new Uczniowie();
-            model.addAttribute("uczen", uczen);
-            return "admin/uczniowie_delete";
         }
     }
 }
