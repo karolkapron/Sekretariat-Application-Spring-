@@ -20,7 +20,7 @@ public class SekretariatDAO{
         this.jdbcTemplate = jdbcTemplate;
     }
     public List<Sekretariat> list(){
-        String sql = "Select * FROM Sekretariaty";
+        String sql = "Select * FROM Sekretariaty ORDER BY ID_SEKRETARIATU";
         return jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Sekretariat.class));
         }

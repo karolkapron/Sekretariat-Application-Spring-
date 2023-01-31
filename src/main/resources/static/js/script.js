@@ -5,3 +5,7 @@ function checkIfEmptyName(text){
     if (text.length == 0):
         alert("Please enter name")
 }
+
+function successfullyDeleted(){
+alert("Poprawnie usunięto");
+}

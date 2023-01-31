@@ -20,7 +20,7 @@ public class UczniowieDAO{
         this.jdbcTemplate = jdbcTemplate;
     }
     public List<Uczniowie> list(){
-        String sql = "Select * FROM Uczniowie";
+        String sql = "Select * FROM Uczniowie ORDER BY ID_UCZNIA";
         return jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Uczniowie.class));
     }
@@ -39,7 +39,7 @@ public class UczniowieDAO{
     //odczytanie bazy danych
     public Uczniowie get(int id){
         Object[] args = {id};
-        String sql = "SELECT * FROM UCZNIOWIE WHERE ID_UCZNIA = " + args[0];
+        String sql = "SELECT * FROM Uczniowie WHERE ID_UCZNIA = " + args[0];
         Uczniowie uczniowie = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Uczniowie.class));
         return uczniowie;
     }
