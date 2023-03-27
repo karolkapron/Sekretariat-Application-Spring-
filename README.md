@@ -1,1 +1,1 @@
-# Sekretariat-Application-Spriong-
+# Sekretariat-Application-Spring-
