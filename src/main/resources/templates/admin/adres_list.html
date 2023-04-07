@@ -10,6 +10,8 @@
       font-family: sans-serif;
       text-align: center;
       background-color: #f2f2f2;
+      margin 0;
+      padding: 0;
     }
 
     h1 {
@@ -42,6 +44,16 @@
         font-weight: bold;
         letter-spacing: 1px;
     }
+    .main{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    }
+
+    .table{
+    margin: 2em;
+    }
   </style>
 </head>
 <body>
@@ -53,29 +65,29 @@
         <a class="nav-link active" th:href="@{/adres_add}">Dodaj adresy<span class="sr-only">(current)</span></a>
     </li>
 </ul>
-
-<table class = "table" border = "1" cellpadding = "10" width="800px">
-    <thead class="thead-dark">
-    <tr>
-        <th>ID</th>
-        <th>Miasto</th>
-        <th>Ulica</th>
-        <th>Kod pocztowy</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each = "Adres : ${Adres}">
-        <td th:text = "${Adres.ID_ADRES}">ID</td>
-        <td th:text = "${Adres.MIASTO}">Miasto</td>
-        <td th:text = "${Adres.ULICA}">Ulica</td>
-        <td th:text = "${Adres.KOD_POCZTOWY}">Kod pocztowy</td>
-        <td>
-            <a th:href="@{'/adresy_delete/'+${Adres.ID_ADRES}}">Usuń</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
+<div class ="main">
+    <table class = "table" border = "1" cellpadding = "10" width="800px">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Miasto</th>
+            <th>Ulica</th>
+            <th>Kod pocztowy</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "Adres : ${Adres}">
+            <td th:text = "${Adres.ID_ADRES}">ID</td>
+            <td th:text = "${Adres.MIASTO}">Miasto</td>
+            <td th:text = "${Adres.ULICA}">Ulica</td>
+            <td th:text = "${Adres.KOD_POCZTOWY}">Kod pocztowy</td>
+            <td>
+                <a th:href="@{'/adresy_delete/'+${Adres.ID_ADRES}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

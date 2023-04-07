@@ -32,6 +32,16 @@
         font-weight: bold;
         letter-spacing: 1px;
     }
+        .main{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    }
+
+    .table{
+    margin: 2em;
+    }
   </style>
 </head>
 <body>
@@ -43,7 +53,7 @@
     <a class="nav-link active" th:href="@{/uczniowie_add}">Dodaj ucznia<span class="sr-only">(current)</span></a>
   </li>
 </ul>
-
+<div class="main">
 <table class = "table" border = "1" cellpadding = "10" width="800px">
   <thead class="thead-dark">
   <tr>
@@ -74,7 +84,7 @@
 
   </tbody>
 </table>
-
+</div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

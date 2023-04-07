@@ -40,7 +40,7 @@
 			<artifactId>ojdbc11</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/jakub/Desktop/BDBT/Spring/ojdbc11.jar</systemPath>
+			<systemPath>C:/Users/karol/Desktop/Studia/BDBT/Spring/ojdbc11.jar</systemPath>
 		</dependency>
 		<!--  Spring Security - start  -->
 		<dependency>
@@ -102,5 +102,10 @@
 		<artifactId>jquery</artifactId>
 		<version>1.9.1</version>
 	</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<version>2.6.1</version>
+		</dependency>
 	</dependencies>
 </project>
